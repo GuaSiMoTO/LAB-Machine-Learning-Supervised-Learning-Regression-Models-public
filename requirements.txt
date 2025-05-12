@@ -1,6 +1,6 @@
 matplotlib
 pandas
-Requests
+requests
 scikit-learn
 seaborn
 statsmodels
