@@ -146,7 +146,6 @@ In this step, we will perform a **Grid Search** to tune the **Ridge Regression m
    - Import `GridSearchCV` from `sklearn.model_selection` for performing the grid search.
    - Import `PolynomialFeatures` from `sklearn.preprocessing` to create polynomial features.
    - Import `Ridge` from `sklearn.linear_model` for the Ridge Regression model.
-   - Use `Pipeline` from `sklearn.pipeline` to chain the polynomial transformation and Ridge regression together.
 
 2. **Define the parameter grid** for Ridge Regression:
    - We will tune the `alpha` parameter, which controls the strength of the regularization. You can define a grid of possible `alpha` values to try, such as `[0.1, 1.0, 10.0, 100.0]`.
