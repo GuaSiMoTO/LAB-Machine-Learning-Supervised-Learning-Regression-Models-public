@@ -72,15 +72,15 @@ Multicollinearity occurs when features are highly correlated with each other, wh
 
 2. **Interpret the VIF values**:
    - Features with a **low VIF** (close to 1) are **not highly correlated** with others and are safe to keep in the model.
-   - Features with **high VIF** values are **highly correlated** with other features and should be considered for removal. Common practice is to remove features with a VIF higher than **10**, as they contribute to multicollinearity and may distort the results.
+   - Features with **high VIF** values are **highly correlated** with other features and should be considered for removal if they do not provide meaningful or unique information.
 
 3. **Decision Making**:
-   - **Remove features with excessively high VIF** (e.g., above 10). For example, if `temp` and `atemp` have high VIFs and are very correlated, consider keeping only one of them (e.g., `temp`).
-   - If some features, like `instant` or `registered`, have a high VIF but are essentially **redundant** (e.g., `registered` and `casual`), remove the redundant variables to avoid overfitting.
-   - Keep the features that provide unique information and have reasonable VIFs (e.g., around 1 to 5).
+   - **Remove features with excessively high VIF** (e.g., above 10), especially when they are highly correlated with other predictors and do not add unique interpretability to the model. For example, if `temp` and `atemp` are very similar, consider keeping only one (e.g., `temp`).
+   - If features like `registered` are strongly related to other predictors (e.g., `casual`) or to the target variable (`cnt`), they should be excluded to prevent overfitting.
+   - Retain variables that either provide relevant information or will be used to explore how different models handle multicollinearity, even if their VIF is higher than usual.
 
 4. **Example Features to Keep**:
-   After analyzing the VIFs, **you may decide to keep the features that show the lowest multicollinearity**. For instance, if `season`, `yr`, and `casual` have VIFs below 5 or 10, they might remain in your model. However, features like `instant`, `registered`, or `atemp` might need to be removed due to their high VIF.
+   Based on the VIF analysis, you may choose to keep features such as `yr`, `casual`, `temp`, and `instant`. While some of these may show moderate or high multicollinearity, they can still be useful for analyzing how linear and regularized regression models handle correlated features. In contrast, variables like `registered` or `atemp` may be removed due to redundancy or excessive VIF values.
 
 ### Step 4: Generate a Linear Regression Model
 
